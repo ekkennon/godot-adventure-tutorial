@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/env/level1/frame1/frame1/ground Merged.PNG" type="Texture" id=1]
+[ext_resource path="res://assets/env/level1/frame1/frame1/vignette.PNG" type="Texture" id=2]
+[ext_resource path="res://assets/env/level1/frame1/frame1/sky Merged.PNG" type="Texture" id=3]
+[ext_resource path="res://assets/env/level1/frame1/frame1/mountains2 Merged.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/env/level1/frame1/frame1/clouds Merged.PNG" type="Texture" id=5]
+[ext_resource path="res://assets/env/level1/frame1/frame1/foreground Merged.PNG" type="Texture" id=6]
+[ext_resource path="res://assets/env/level1/frame1/frame1/mid ground wall Merged.PNG" type="Texture" id=7]
+[ext_resource path="res://assets/env/level1/frame1/frame1/mountains1 Merged.PNG" type="Texture" id=8]
+[ext_resource path="res://assets/env/level1/frame1/frame1/mountains3 Merged.PNG" type="Texture" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="Level1" type="Node"]
+
+[node name="Frame1" type="Node2D" parent="."]
+
+[node name="HitBox" type="StaticBody2D" parent="Frame1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Frame1/HitBox"]
+polygon = PoolVector2Array( 130, 2127, 233, 2106, 383, 2046, 569, 2016, 658, 1914, 1150, 1926, 1306, 1902, 1468, 1854, 1725, 1890, 1995, 1854, 2223, 1872, 2349, 1764, 2592, 1817, 2738, 1752, 2966, 1824, 3062, 1704, 3230, 1746, 3793, 1836, 4057, 1812, 4548, 1830, 4800, 1740, 5447, 1884, 5489, 1830, 5855, 1902, 6160, 1968, 6460, 1926, 6640, 1962, 6718, 1908, 7011, 2070, 7206, 2072, 7568, 2129, 7682, 2185, 122, 2198 )
+
+[node name="SkyBg" type="ParallaxBackground" parent="Frame1"]
+layer = -6
+scroll_base_scale = Vector2( 0.3, 0.3 )
+
+[node name="SkyLayer" type="ParallaxLayer" parent="Frame1/SkyBg"]
+
+[node name="SkySprite" type="Sprite" parent="Frame1/SkyBg/SkyLayer"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CloudsBg" type="ParallaxBackground" parent="Frame1"]
+layer = -5
+scroll_base_scale = Vector2( 0.3, 0.3 )
+
+[node name="CloudsLayer" type="ParallaxLayer" parent="Frame1/CloudsBg"]
+
+[node name="CloudsSprite" type="Sprite" parent="Frame1/CloudsBg/CloudsLayer"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Mount1Bg" type="ParallaxBackground" parent="Frame1"]
+layer = -4
+scroll_base_scale = Vector2( 0.4, 0.4 )
+
+[node name="Mount1Layer" type="ParallaxLayer" parent="Frame1/Mount1Bg"]
+
+[node name="Mount1Sprite" type="Sprite" parent="Frame1/Mount1Bg/Mount1Layer"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Mount2Bg" type="ParallaxBackground" parent="Frame1"]
+layer = -3
+scroll_base_scale = Vector2( 0.5, 0.5 )
+
+[node name="Mount2Layer" type="ParallaxLayer" parent="Frame1/Mount2Bg"]
+
+[node name="Mount2Sprite" type="Sprite" parent="Frame1/Mount2Bg/Mount2Layer"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Mount3Bg" type="ParallaxBackground" parent="Frame1"]
+layer = -2
+scroll_base_scale = Vector2( 0.6, 0.6 )
+
+[node name="Mount3Layer" type="ParallaxLayer" parent="Frame1/Mount3Bg"]
+
+[node name="Mount3Sprite" type="Sprite" parent="Frame1/Mount3Bg/Mount3Layer"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="MidGdBg" type="ParallaxBackground" parent="Frame1"]
+layer = -1
+scroll_base_scale = Vector2( 0.95, 0.95 )
+
+[node name="MidGdLayer" type="ParallaxLayer" parent="Frame1/MidGdBg"]
+
+[node name="WallSprite" type="Sprite" parent="Frame1/MidGdBg/MidGdLayer"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="GroundBg" type="ParallaxBackground" parent="Frame1"]
+layer = 0
+
+[node name="GroundLayer" type="ParallaxLayer" parent="Frame1/GroundBg"]
+
+[node name="GroundSprite" type="Sprite" parent="Frame1/GroundBg/GroundLayer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="FgBg" type="ParallaxBackground" parent="Frame1"]
+layer = 1
+scroll_base_scale = Vector2( 1.1, 1.1 )
+
+[node name="FgLayer" type="ParallaxLayer" parent="Frame1/FgBg"]
+
+[node name="FgSprite" type="Sprite" parent="Frame1/FgBg/FgLayer"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Vignette" type="Sprite" parent="Frame1"]
+z_index = 100
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2( 3641, 1725 )
+rotation = 0.174533
+scale = Vector2( 2, 3 )
+z_index = 100
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Box"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource( 1 )
