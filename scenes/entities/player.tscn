@@ -3,10 +3,10 @@
 [ext_resource path="res://assets/entities/player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/player.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 145.499, 509.21 )
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 77.0
 height = 862.0
 
@@ -57,11 +57,11 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipHelper/AttackArea"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="platform_detect" type="RayCast2D" parent="."]
 position = Vector2( 0, 500 )

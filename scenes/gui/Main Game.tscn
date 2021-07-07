@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gui/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/GUI2.tscn" type="PackedScene" id=5]
 
 [node name="Main Game" type="Node"]
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="GUI2" parent="." instance=ExtResource( 5 )]
 
 [node name="Level1" parent="." instance=ExtResource( 1 )]
 
@@ -25,3 +28,5 @@ position = Vector2( 7072, 1846 )
 
 [node name="enemy3" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 2637, 1642 )
+
+[connection signal="current_health_changed" from="player" to="GUI2" method="_on_player_current_health_changed"]

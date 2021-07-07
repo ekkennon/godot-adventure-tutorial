@@ -7,13 +7,12 @@ var player : KinematicBody2D
 func _ready():
 	player = PlayerData.get_main_node().get_node("player")
 	
-	player.connect("initial_health_changed", self, "_on_player_initial_health_changed", [])
-	player.connect("current_health_changed", self, "_on_player_current_health_changed", [])
+	#player.connect("initial_health_changed", self, "_on_player_initial_health_changed", [])
+	#player.connect("current_health_changed", self, "_on_player_current_health_changed", [])
 	
-	var initial_health = player.initial_health
-	for i in range(0, initial_health):
-		health_box.add_child(health_indicator.instance())
-		
+	#var initial_health = player.initial_health
+	#for i in range(0, initial_health):
+		#health_box.add_child(health_indicator.instance())
 
 
 func _on_player_initial_health_changed(health):
